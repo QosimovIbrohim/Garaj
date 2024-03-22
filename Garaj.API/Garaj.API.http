@@ -1,0 +1,6 @@
+@Garaj.API_HostAddress = http://localhost:5114
+
+GET {{Garaj.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
