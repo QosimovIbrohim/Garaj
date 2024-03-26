@@ -1,0 +1,46 @@
+﻿@page "/cars"
+@using Garaj.Application.useCases.CarCase.Query
+@using MediatR
+@using Garaj.Domain.Entities // Assuming Car class is in this namespace
+
+<h3>Cars</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Model</th>
+            <th>Brand</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var car in cars)
+        {
+            <tr>
+                <td>@car.Model</td>
+                <td>@car.Brand</td>
+                <td>@car.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private readonly IMediator _mediator;
+    protected List<Car> cars = new List<Car>();
+
+    public Cars()
+    {
+        // This is the parameterless constructor
+    }
+
+    public Cars(IMediator mediator)
+    {
+        _mediator = mediator;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        cars = await _mediator.Send(new GetAllCarsQuery());
+    }
+}

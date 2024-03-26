@@ -6,4 +6,18 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="11.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Garaj.Application\Garaj.Application.csproj" />
+    <ProjectReference Include="..\Garaj.Domain\Garaj.Domain.csproj" />
+    <ProjectReference Include="..\Garaj.Infrastructure\Garaj.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
 using Garaj.BLaZ.Components;
+using Garaj.Infrastructure;
 
 namespace Garaj.BLaZ
 {
@@ -9,6 +10,9 @@ namespace Garaj.BLaZ
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+
+            builder.Services.AddInfrastruct();
+
             builder.Services.AddRazorComponents()
                 .AddInteractiveServerComponents();
 
